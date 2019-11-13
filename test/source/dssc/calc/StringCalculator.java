@@ -1,5 +1,7 @@
 //package dssc.calc;
 
+import java.util.Arrays;
+
 public class StringCalculator {
     private String stringa;
 
@@ -17,11 +19,9 @@ public class StringCalculator {
         if(this.stringa==""){return 0;}
         else if(verifica()==true){return Integer.parseInt(get_stringa());}
         else{
+
             int[] list = crea_lista();
-            int somma = 0;
-            for(int i = 0;i<list.length;i++){
-                somma = somma + list[i];
-            }
+            int somma = Arrays.stream(list).reduce(0,Integer::sum);
             return somma;
         }
     }
